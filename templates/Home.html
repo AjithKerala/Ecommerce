@@ -1,12 +1,34 @@
-
 {% extends 'navbar.html' %}
-
-{% load static %}
-
 {% block content %}
-<div style="background-color:purple">
-<div class="place" style="text-align:center">
-   <p class="mb-5"> hloo</p>
+<div  style="height:250px;background-color:purple;text-align:center;color:#fff">
+  <div class="container">
+  <div style="padding-top:25px";>
+    <h1>Welcome To Noida Homes</h1>
+    <p>We sell furnitures for the modern homes</p>
+    <button type="button" class="btn btn-light">Start shopping</button>
+
+  </div>
+    </div>
+
+
 </div>
+<div class="container">
+<div class="row mt-3">
+{% for i in Value%}
+  <div class="col-md-3 my-4">
+<div class="card" style="width: 16rem;">
+  <img src="{{ i.photos.url}}" class="mx-auto d-block" alt="..." style="width:8rem;">
+  <div class="card-body">
+    <a href="#" style="text-decoration:none;color:black">{{ i.name}}</a>
+    <a href="#" class="text-purple-500 hover:text-purple-800 " style="padding-left:90px;text-decoration:none;color:black">Shop</a>
+  </div>
+  <div style="padding-left:18px">
+    <p style="color:gray">£999</p>
+
+  </div>
+</div>
+  </div>
+  {% endfor %}
+    </div>
 </div>
 {% endblock %}
