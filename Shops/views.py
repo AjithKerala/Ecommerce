@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 from .models import Productts,category
 
@@ -27,5 +27,6 @@ def Shops(requset):
 
     return render(requset,'shop.html',{"Value":obj,"cat":categ,"active_category":active_category})
 
-def product(request):
-    return render(request,'products.html')
+def product(request,slug):
+    product=get_object_or_404(Productts,slug=slug)
+    return render(request,'products.html',{'product':product})
